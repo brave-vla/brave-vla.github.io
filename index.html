@@ -5,136 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BRAVE Workshop @ ECCV 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0c10;
-    --surface: #12151c;
-    --surface-2: #1a1e28;
-    --border: rgba(255,255,255,0.06);
-    --text: #e8eaf0;
-    --text-dim: #8b90a0;
-    --accent: #4ecdc4;
-    --accent-2: #ff6b6b;
-    --accent-3: #ffe66d;
-    --gradient-1: linear-gradient(135deg, #4ecdc4, #44b8b0);
-    --gradient-2: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    --bg: #f2efe8;
+    --bg-warm: #e8e4db;
+    --surface: #faf9f6;
+    --border: #d4cfc4;
+    --border-light: #e0dbd2;
+    --text: #1a1815;
+    --text-mid: #3d3a34;
+    --text-dim: #5e5a52;
+    --text-soft: #8a857b;
+    --accent: #3d6b5a;
+    --accent-light: #5a8e78;
+    --accent-warm: #a07840;
+    --accent-warm-light: #c49a5c;
+    --accent-muted: #6b8278;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Karla', sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.7;
+    line-height: 1.75;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10,12,16,0.85);
-    backdrop-filter: blur(20px);
+    background: rgba(242,239,232,0.92);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 60px;
+    padding: 0 3rem;
+    height: 58px;
     display: flex; align-items: center; justify-content: space-between;
   }
   nav .logo {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500; font-size: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600; font-size: 0.82rem;
     color: var(--accent);
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
   }
-  nav .logo span { color: var(--text-dim); }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav .logo span { color: var(--text-soft); font-weight: 500; }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; }
   nav ul a {
     color: var(--text-dim); text-decoration: none;
-    font-size: 0.85rem; font-weight: 400;
-    letter-spacing: 0.5px;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.3px;
     transition: color 0.3s;
   }
   nav ul a:hover { color: var(--accent); }
 
-  /* ─── HERO ─── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    padding: 6rem 2rem 4rem;
+    padding: 7rem 2rem 5rem;
     position: relative;
-    overflow: hidden;
+    background: var(--bg);
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(78,205,196,0.08), transparent),
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(255,107,107,0.05), transparent),
-      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255,230,109,0.04), transparent);
+      radial-gradient(ellipse 70% 50% at 50% 30%, rgba(61,107,90,0.05), transparent),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(160,120,64,0.04), transparent);
     pointer-events: none;
   }
-  .hero-grid {
+  .hero-texture {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    background-image: radial-gradient(circle, var(--border) 0.6px, transparent 0.6px);
+    background-size: 28px 28px;
+    opacity: 0.45;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black, transparent);
+    pointer-events: none;
   }
 
   .hero-venue {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
     color: var(--accent);
-    letter-spacing: 3px;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
   }
-
   .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    line-height: 1.1;
-    max-width: 900px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.18;
+    max-width: 920px;
     margin-bottom: 1rem;
+    color: var(--text);
     opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
   }
   .hero h1 em {
     font-style: italic;
-    background: linear-gradient(135deg, var(--accent), var(--accent-3));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent);
   }
-
+  .hero h1 .ul {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2.5px;
+  }
   .hero-acronym {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text-dim);
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     text-transform: uppercase;
     margin-bottom: 2rem;
     opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
   }
-
   .hero-sub {
     font-size: 1.1rem;
     color: var(--text-dim);
-    max-width: 600px;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    max-width: none;
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+    line-height: 1.8;
+    white-space: nowrap;
     opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
   }
-
   .hero-meta {
-    display: flex; gap: 2rem; flex-wrap: wrap;
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
     justify-content: center;
     opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
   }
@@ -145,55 +152,75 @@
     border-radius: 100px;
     padding: 0.6rem 1.4rem;
     font-size: 0.85rem;
-    color: var(--text-dim);
+    font-weight: 500;
+    color: var(--text-mid);
   }
-  .hero-meta .tag .icon {
-    width: 8px; height: 8px;
+  .hero-meta .tag .dot {
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--accent);
   }
-  .hero-meta .tag .icon.red { background: var(--accent-2); }
-  .hero-meta .tag .icon.yellow { background: var(--accent-3); }
+  .hero-meta .tag .dot.warm { background: var(--accent-warm); }
+  .hero-meta .tag .dot.muted { background: var(--accent-muted); }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ─── SECTIONS ─── */
+  /* SECTIONS */
   section { padding: 5rem 2rem; }
-  .container { max-width: 1000px; margin: 0 auto; }
+  .container { max-width: 940px; margin: 0 auto; }
 
   .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
     color: var(--accent);
-    letter-spacing: 3px;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
   .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--text);
   }
   .section-desc {
     color: var(--text-dim);
     font-size: 1.05rem;
-    max-width: 700px;
-    font-weight: 300;
+    max-width: 660px;
+    font-weight: 400;
     margin-bottom: 3rem;
+    line-height: 1.8;
   }
 
-  /* ─── THEMES ─── */
+  .divider {
+    max-width: 940px; margin: 0 auto;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .about-text {
+    color: var(--text-mid);
+    font-weight: 400;
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+    line-height: 1.85;
+    font-size: 1rem;
+  }
+
+  /* THEMES */
   .themes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
   }
   .theme-card {
@@ -201,115 +228,128 @@
     padding: 2rem;
     transition: background 0.3s;
   }
-  .theme-card:hover { background: var(--surface-2); }
+  .theme-card:hover { background: var(--bg); }
   .theme-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
     color: var(--accent);
     letter-spacing: 2px;
     margin-bottom: 0.75rem;
   }
   .theme-card h3 {
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
+    line-height: 1.35;
+    color: var(--text);
   }
   .theme-card p {
     color: var(--text-dim);
-    font-size: 0.85rem;
-    font-weight: 300;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.65;
   }
 
-  /* ─── SPEAKERS ─── */
+  /* SPEAKERS */
   .speakers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 1.2rem;
   }
   .speaker-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 2rem;
     transition: border-color 0.3s, transform 0.3s;
   }
   .speaker-card:hover {
-    border-color: rgba(78,205,196,0.2);
-    transform: translateY(-4px);
+    border-color: var(--accent-light);
+    transform: translateY(-3px);
   }
   .speaker-avatar {
-    width: 56px; height: 56px;
+    width: 54px; height: 54px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--surface-2), var(--bg));
+    background: var(--bg-warm);
     border: 2px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--accent);
     margin-bottom: 1.2rem;
   }
   .speaker-card h3 {
-    font-size: 1.05rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
+    color: var(--text);
+  }
+ .speaker-card .role {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-weight: 400;
+    margin-bottom: 0.15rem;
+    font-style: italic;
   }
   .speaker-card .affil {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
   }
   .speaker-card .expertise {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--text-dim);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
   }
 
-  /* ─── SCHEDULE ─── */
+  /* SCHEDULE */
   .schedule-table {
     width: 100%;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
+    background: var(--surface);
   }
   .sched-row {
     display: grid;
     grid-template-columns: 160px 80px 1fr;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
     transition: background 0.2s;
   }
   .sched-row:last-child { border-bottom: none; }
-  .sched-row:hover { background: var(--surface); }
+  .sched-row:hover { background: var(--bg); }
   .sched-row.header {
-    background: var(--surface);
+    background: var(--bg-warm);
     font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-dim);
   }
   .sched-row > div { padding: 1rem 1.5rem; }
   .sched-time {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
+    font-weight: 500;
     color: var(--accent);
   }
-  .sched-dur {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-  }
-  .sched-session { font-size: 0.95rem; }
-  .sched-row.break { background: rgba(78,205,196,0.03); }
-  .sched-row.break .sched-session { color: var(--text-dim); font-style: italic; }
+  .sched-dur { font-size: 0.85rem; font-weight: 500; color: var(--text-soft); }
+  .sched-session { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+  .sched-row.break { background: rgba(61,107,90,0.04); }
+  .sched-row.break .sched-session { color: var(--text-dim); font-style: italic; font-weight: 400; }
 
-  /* ─── CALL FOR PAPERS ─── */
+  /* CFP */
   .cfp-box {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem;
+    border-radius: 12px;
+    padding: 2.8rem;
     position: relative;
     overflow: hidden;
   }
@@ -317,135 +357,154 @@
     content: '';
     position: absolute; top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2));
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm), var(--accent-muted));
   }
   .cfp-box h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--text);
   }
   .cfp-box p {
-    color: var(--text-dim);
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    max-width: 700px;
+    color: var(--text-mid);
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    max-width: 660px;
+    font-size: 0.95rem;
+    line-height: 1.8;
   }
+  .cfp-box p strong { color: var(--accent-warm); font-weight: 600; }
   .timeline-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0.8rem;
     margin-top: 2rem;
   }
   .timeline-item {
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
   }
   .timeline-item .tl-label {
-    font-size: 0.75rem;
-    color: var(--text-dim);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-soft);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     margin-bottom: 0.3rem;
   }
   .timeline-item .tl-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88rem;
     color: var(--accent);
-    font-weight: 500;
+    font-weight: 600;
   }
 
-  /* ─── ORGANIZERS ─── */
+  /* ORGANIZERS */
   .org-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.8rem;
   }
   .org-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 1.5rem;
     text-align: center;
     transition: border-color 0.3s;
   }
-  .org-card:hover { border-color: rgba(78,205,196,0.15); }
+  .org-card:hover { border-color: var(--accent-light); }
   .org-avatar {
-    width: 48px; height: 48px;
+    width: 46px; height: 46px;
     border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--border);
+    background: var(--bg-warm);
+    border: 1.5px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1rem;
-    font-family: 'DM Serif Display', serif;
+    margin: 0 auto 0.9rem;
+    font-family: 'Cormorant Garamond', serif;
     color: var(--accent);
     font-size: 1rem;
+    font-weight: 600;
   }
   .org-card h4 {
-    font-size: 0.9rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
+    color: var(--text);
+  }
+.org-card .org-role {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 0.1rem;
   }
   .org-card .org-affil {
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     color: var(--text-dim);
-    font-weight: 300;
+    font-weight: 400;
   }
   .org-card .org-type {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.6rem;
-    color: var(--accent);
+    font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-top: 0.5rem;
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
   }
+  .org-type.academic { color: var(--accent); background: rgba(61,107,90,0.1); }
+  .org-type.industry { color: var(--accent-warm); background: rgba(160,120,64,0.1); }
 
-  /* ─── FOOTER ─── */
+  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 3rem 2rem;
     text-align: center;
     color: var(--text-dim);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 400;
   }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  footer a:hover { text-decoration: underline; }
   footer .foot-logo {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
+    font-weight: 600;
     color: var(--text-dim);
-    letter-spacing: 2px;
-    margin-bottom: 0.75rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0.6rem;
   }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
     nav ul { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .themes-grid { grid-template-columns: 1fr; }
     .sched-row { grid-template-columns: 1fr; }
-    .sched-row > div { padding: 0.5rem 1.2rem; }
-    .sched-row > div:first-child { padding-top: 1rem; }
-    .sched-row > div:last-child { padding-bottom: 1rem; }
+    .sched-row > div { padding: 0.4rem 1.2rem; }
+    .sched-row > div:first-child { padding-top: 0.9rem; }
+    .sched-row > div:last-child { padding-bottom: 0.9rem; }
     .sched-row.header { display: none; }
     .hero-meta { flex-direction: column; align-items: center; }
-  }
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    max-width: 1000px;
-    margin: 0 auto;
+    .cfp-box { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">BRAVE <span>@ ECCV 2026</span></div>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#themes">Themes</a></li>
+    <li><a href="#themes">Topics</a></li>
     <li><a href="#speakers">Speakers</a></li>
     <li><a href="#schedule">Schedule</a></li>
     <li><a href="#cfp">Call for Papers</a></li>
@@ -453,79 +512,74 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
+  <div class="hero-texture"></div>
   <div class="hero-venue">ECCV 2026 Workshop · Half-Day</div>
-  <h1>From Benchmarks to the <em>Real World</em></h1>
+  <h1>From <span class="ul">B</span>enchmarks to the <em><span class="ul">R</span>eal&nbsp;World</em>: <span class="ul">A</span>dvances for <span class="ul">V</span>ision-Language-Action in <span class="ul">E</span>mbodied&nbsp;AI</h1>
   <div class="hero-acronym">B · R · A · V · E</div>
   <p class="hero-sub">
-    Advances for Vision-Language-Action in Embodied AI — bridging computer vision, language, and robotics toward deployable, robust systems.
+    Focus on VLA in embodied AI with an emphasis on real-world reliability.
   </p>
   <div class="hero-meta">
-    <div class="tag"><div class="icon"></div> 5 Keynote Speakers</div>
-    <div class="tag"><div class="icon red"></div> Paper Submissions Open</div>
-    <div class="tag"><div class="icon yellow"></div> Poster Session & Panel</div>
+    <div class="tag"><div class="dot"></div> 5 Keynote Speakers</div>
+    <div class="tag"><div class="dot warm"></div> Workshop Paper Submissions</div>
+    <div class="tag"><div class="dot muted"></div> Poster Session &amp; Panel</div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="section-label">About</div>
-    <div class="section-title">Why BRAVE?</div>
+    <div class="section-title">Abstract</div>
     <div class="section-desc">
-      Vision-Language-Action models show strong progress in controlled labs and curated benchmarks — yet real-world reliability remains limited. What bottlenecks must be addressed for VLA models to perform robustly in realistic environments?
+      Recent advances in Vision-Language models (VLMs) have enabled the development of Vision-Language-Action (VLA) models, with strong results on curated benchmarks such as LIBERO, SimplerEnv, and Meta-World. However, real-world reliability remains limited. In applications such as household mobile manipulation, public-space assistance, and warehouse logistics, models must generalize and be robust under occlusions, changing viewpoints, novel objects, and enable long-horizon task execution. Beyond control difficulties, recent studies reveal limitations such as sensitivity to appearance and distribution shifts, which reduces robustness, and shortcut learning from spurious visual cues and dataset bias, which leads to weak language grounding -- where models fail to connect linguistic instructions to the relevant visual cues.
     </div>
-    <p style="color: var(--text-dim); font-weight: 300; max-width: 800px; margin-bottom: 1.5rem;">
-      This workshop brings together the computer vision, language, and robotics communities to align on shared problem definitions, highlight common failure modes, and discuss emerging approaches toward building deployable and robust embodied systems. We extend the discussion beyond controlled laboratory settings — to realistic environments — focusing on bottlenecks and emerging solutions across representation learning, data-centric approaches, and system integration.
+    <p class="about-text">
+      This workshop focuses on VLA in embodied AI with an emphasis on real-world reliability. One central question is: <em>what are the concrete bottlenecks -- in representation, data, evaluation, and system integration -- for robust VLA systems in realistic settings?</em>
     </p>
-    <p style="color: var(--text-dim); font-weight: 300; max-width: 800px;">
-      In applications such as household mobile manipulation, public-space assistance, and warehouse logistics, models must generalize under occlusions, changing viewpoints, novel objects, and long-horizon task execution. Recent studies reveal limitations including sensitivity to appearance and distribution shifts, shortcut learning from spurious visual cues, and weak language grounding.
+    <p class="about-text">
+      We propose a half-day workshop consisting of five keynote talks, contributed poster presentations, and a panel discussion. Speakers are from both academia and industry, bringing diverse perspectives on foundation models, vision-language representations, and robotic systems. This workshop brings together the computer vision, language, and robotics communities to align on shared problem definitions, highlight common failure modes, and discuss emerging approaches toward building deployable and robust embodied systems in real-world scenarios.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- THEMES -->
 <section id="themes">
   <div class="container">
-    <div class="section-label">Workshop Themes</div>
+    <div class="section-label">Workshop Topics</div>
     <div class="section-title">Key Topics</div>
-    <div class="section-desc">
-      Computer-vision driven topics at the core of reliable VLA systems.
-    </div>
+    <div class="section-desc">Topics at the core of reliable VLA systems.</div>
     <div class="themes-grid">
       <div class="theme-card">
         <div class="theme-num">01</div>
-        <h3>Grounding Vision & Language to Action</h3>
-        <p>Connecting linguistic instructions to visual and physical affordances for meaningful action execution.</p>
+        <h3>Grounding Vision &amp; Language to Action</h3>
+        <!-- <p>Connecting linguistic instructions to visual and physical affordances for meaningful action execution.</p> -->
       </div>
       <div class="theme-card">
         <div class="theme-num">02</div>
-        <h3>Generalization Across Tasks & Environments</h3>
-        <p>Transferring learned skills across diverse tasks, scenes, objects, and sensing conditions.</p>
+        <h3>Generalization Across Tasks and Environments</h3>
+        <!-- <p>Transferring learned skills across diverse tasks, scenes, objects, and sensing conditions.</p> -->
       </div>
       <div class="theme-card">
         <div class="theme-num">03</div>
-        <h3>Scaling Under Limited Real-World Data</h3>
-        <p>Building capable systems when real-world data is scarce, imperfect, or costly to collect.</p>
+        <h3>Scaling under Limited and Imperfect Real-World Data</h3>
+        <!-- <p>Building capable systems when real-world data is scarce, imperfect, or costly to collect.</p> -->
       </div>
       <div class="theme-card">
         <div class="theme-num">04</div>
         <h3>Data Quality</h3>
-        <p>Ensuring broad, well-aligned vision-language coverage across tasks, scenes, and conditions.</p>
+        <!-- <p>Ensuring broad, well-aligned vision-language coverage across tasks, scenes, and conditions.</p> -->
       </div>
       <div class="theme-card">
         <div class="theme-num">05</div>
-        <h3>Robustness & Safety</h3>
-        <p>Reliable performance under realistic sensing variation, occlusions, and distribution shifts.</p>
+        <h3>Robustness and Safety under Realistic Sensing Variation</h3>
+        <!-- <p>Reliable performance under realistic sensing variation, occlusions, and distribution shifts.</p> -->
       </div>
       <div class="theme-card">
         <div class="theme-num">06</div>
-        <h3>Fair & Comprehensive Evaluation</h3>
-        <p>Evaluation practices that measure generalization, safety, and reliability beyond standard benchmarks.</p>
+        <h3>Fair and Comprehensive Evaluation</h3>
+        <!-- <p>Evaluation practices that measure generalization, safety, and reliability beyond standard benchmarks.</p> -->
       </div>
     </div>
   </div>
@@ -533,42 +587,43 @@
 
 <div class="divider"></div>
 
-<!-- SPEAKERS -->
 <section id="speakers">
   <div class="container">
     <div class="section-label">Confirmed Speakers</div>
     <div class="section-title">Keynote Speakers</div>
-    <div class="section-desc">
-      Five confirmed speakers from academia and industry, spanning VLA systems, multimodal learning, robot learning, and vision-language reasoning.
-    </div>
+    <div class="section-desc">Five confirmed speakers from academia and industry, spanning VLA systems, multimodal learning, robot learning, and vision-language reasoning.</div>
     <div class="speakers-grid">
       <div class="speaker-card">
         <div class="speaker-avatar">RC</div>
-        <h3>Rémi Cadène</h3>
-        <div class="affil">UMA (prev. Hugging Face, Tesla)</div>
+        <h3>Remi Cadene</h3>
+        <div class="role">CEO</div>
+        <div class="affil">Universal Mechanical Assistant (UMA)</div>
         <div class="expertise">VLA models · Data collection · Open-source robotics</div>
       </div>
       <div class="speaker-card">
         <div class="speaker-avatar">YZ</div>
         <h3>Yuke Zhu</h3>
+        <div class="role">Associate Professor / Distinguished Research Scientist</div>
         <div class="affil">UT Austin / NVIDIA Research</div>
-        <div class="expertise">Multimodal robot learning · VLA models · Data generation</div>
+        <div class="expertise">Multimodal robot learning · VLA models · Learning from demonstration</div>
       </div>
       <div class="speaker-card">
         <div class="speaker-avatar">EJ</div>
-        <h3>Edward Johns</h3>
+        <div class="role">Associate Professor, Director of Robot Learning Lab</div>
         <div class="affil">Imperial College London</div>
         <div class="expertise">Robot learning · Demonstration learning · Data collection</div>
       </div>
       <div class="speaker-card">
         <div class="speaker-avatar">AK</div>
         <h3>Aishwarya Kamath</h3>
+        <div class="role">Senior Research Scientist</div>
         <div class="affil">Google DeepMind</div>
         <div class="expertise">Vision-Language models · Visual reasoning · Gemma / Gemini</div>
       </div>
       <div class="speaker-card">
         <div class="speaker-avatar">NC</div>
         <h3>Nicolas Carion</h3>
+        <div class="role">Senior Research Scientist</div>
         <div class="affil">Meta AI</div>
         <div class="expertise">Object-centric perception · SAM-3 · DETR · Multimodal understanding</div>
       </div>
@@ -578,14 +633,11 @@
 
 <div class="divider"></div>
 
-<!-- SCHEDULE -->
 <section id="schedule">
   <div class="container">
     <div class="section-label">Program</div>
     <div class="section-title">Workshop Schedule</div>
-    <div class="section-desc">
-      A half-day program of keynote talks, contributed papers, a poster session, and a panel discussion.
-    </div>
+    <div class="section-desc">A half-day program of keynote talks, contributed papers, a poster session, and a panel discussion.</div>
     <div class="schedule-table">
       <div class="sched-row header">
         <div>Time</div>
@@ -615,7 +667,7 @@
       <div class="sched-row break">
         <div class="sched-time">10:40 – 11:10</div>
         <div class="sched-dur">30 min</div>
-        <div class="sched-session">Coffee Break & Poster Session</div>
+        <div class="sched-session">Coffee Break &amp; Poster Session</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">11:10 – 11:40</div>
@@ -625,7 +677,7 @@
       <div class="sched-row">
         <div class="sched-time">11:40 – 11:55</div>
         <div class="sched-dur">15 min</div>
-        <div class="sched-session">Workshop Paper Oral Presentation & Outstanding Paper Award</div>
+        <div class="sched-session">Workshop Paper Oral Presentation &amp; Outstanding Paper Award</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">11:55 – 12:25</div>
@@ -648,7 +700,6 @@
 
 <div class="divider"></div>
 
-<!-- CALL FOR PAPERS -->
 <section id="cfp">
   <div class="container">
     <div class="section-label">Submissions</div>
@@ -656,10 +707,7 @@
     <div class="cfp-box">
       <h3>Submit Your Work</h3>
       <p>
-        We invite submissions addressing any of the workshop themes. Submissions follow the ECCV paper template with a double-blind peer-review process and workshop-specific page limits. Accepted papers will be included in the official proceedings. One selected paper will receive a <strong style="color:var(--accent-3)">Workshop Outstanding Paper Award</strong> and an oral presentation slot.
-      </p>
-      <p style="font-size: 0.9rem;">
-        We expect approximately 20–30 submissions with a ~50% acceptance rate. Accepted papers will be presented during the dedicated poster session.
+        We invite submissions addressing any of the workshop themes. Submissions follow the ECCV paper template with a double-blind peer-review process and workshop-specific page limits. One selected paper will receive a <strong>Workshop Outstanding Paper Award</strong> and present orally at the workshop.
       </p>
       <div class="timeline-items">
         <div class="timeline-item">
@@ -685,74 +733,79 @@
 
 <div class="divider"></div>
 
-<!-- ORGANIZERS -->
 <section id="organizers">
   <div class="container">
     <div class="section-label">Team</div>
     <div class="section-title">Organizers</div>
-    <div class="section-desc">
-      A team combining academic and industrial expertise across computer vision, robotics, and embodied AI.
-    </div>
+    <div class="section-desc">A team combining academic and industrial expertise across computer vision, robotics, and embodied AI.</div>
     <div class="org-grid">
       <div class="org-card">
         <div class="org-avatar">MN</div>
         <h4>Maëlic Neau</h4>
+        <div class="org-role">Postdoctoral Researcher</div>
         <div class="org-affil">Umeå University</div>
-        <div class="org-type">Academic</div>
+        <div class="org-type academic">Academic</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">SY</div>
         <h4>Shih-Min Yang</h4>
+        <div class="org-role">PhD Student</div>
         <div class="org-affil">Örebro University</div>
-        <div class="org-type">Academic</div>
+        <div class="org-type academic">Academic</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">YZ</div>
         <h4>Yufei Zhu</h4>
+        <div class="org-role">PhD Student</div>
         <div class="org-affil">Örebro University</div>
-        <div class="org-type">Academic</div>
+        <div class="org-type academic">Academic</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">RH</div>
         <h4>Rishi Hazra</h4>
+        <div class="org-role">Postdoctoral Researcher</div>
         <div class="org-affil">Meta AI, UK</div>
-        <div class="org-type">Industry</div>
+        <div class="org-type industry">Industry</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">SZ</div>
         <h4>Sebastián Zudaire</h4>
+        <div class="org-role">Senior Research Scientist</div>
         <div class="org-affil">ABB Robotics</div>
-        <div class="org-type">Industry</div>
+        <div class="org-type industry">Industry</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">LQ</div>
         <h4>LiWei Qi</h4>
+        <div class="org-role">Research Manager</div>
         <div class="org-affil">ABB Robotics</div>
-        <div class="org-type">Industry</div>
+        <div class="org-type industry">Industry</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">NV</div>
         <h4>Narūnas Vaškevičius</h4>
+        <div class="org-role">Senior Research Scientist</div>
         <div class="org-affil">Bosch BCAI</div>
-        <div class="org-type">Industry</div>
+        <div class="org-type industry">Industry</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">TS</div>
         <h4>Todor Stoyanov</h4>
+        <div class="org-role">Associate Professor</div>
         <div class="org-affil">Örebro University</div>
-        <div class="org-type">Academic</div>
+        <div class="org-type academic">Academic</div>
       </div>
       <div class="org-card">
         <div class="org-avatar">MM</div>
         <h4>Martin Magnusson</h4>
+        <div class="org-role">Professor</div>
         <div class="org-affil">Örebro University</div>
-        <div class="org-type">Academic</div>
+        <div class="org-type academic">Academic</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="foot-logo">BRAVE @ ECCV 2026</div>
   <p>From Benchmarks to the Real World: Advances for Vision-Language-Action in Embodied AI</p>
